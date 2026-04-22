@@ -10,6 +10,9 @@ public class Exercise3 {
 	private final List<Recording> recordings = new ArrayList<>();
 
 	public void exportRecordings(String fileName) {
+	}
+
+	public void importRecordings(String fileName) {
         try {
             FileReader fileReader = new FileReader(fileName);
             BufferedReader reader = new BufferedReader(fileReader);
@@ -26,10 +29,6 @@ public class Exercise3 {
         catch (IOException e){
             System.out.printf( "%s file not found", fileName);
         }
-	}
-
-	public void importRecordings(String fileName) {
-
 	}
 
 	public Map<Integer, Double> importSales(String fileName) {
