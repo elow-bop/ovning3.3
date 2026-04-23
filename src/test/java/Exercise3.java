@@ -18,10 +18,8 @@ public class Exercise3 {
                 writer.println("  <year>" + r.getYear() + "</year>");
                 writer.println("  <genres>");
 
-                //List<String> genres = new ArrayList<>(r.getGenre());
-
-                for(int i=0; i<r.getGenre().size(); i++){
-                    writer.println("    <genre>" + r.getGenre() + "</genre>");
+                for(String genre : r.getGenre()){
+                    writer.println("    <genre>" + genre + "</genre>");
                 }
 
                 writer.println("  </genres>");
