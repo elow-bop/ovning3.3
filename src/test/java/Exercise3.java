@@ -1,9 +1,5 @@
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.io.*;
 
 public class Exercise3 {
@@ -15,7 +11,6 @@ public class Exercise3 {
     //här ska vi läsa filerna
 
 	public void importRecordings(String fileName) {
-        //här ska vi skriva filerna
         try {
             FileReader fileReader = new FileReader(fileName);
             BufferedReader reader = new BufferedReader(fileReader);
@@ -25,27 +20,26 @@ public class Exercise3 {
             for (int i = 0; i>numberOfRecords; i++){ //för varje record som finns i recording_input så skapar vi ett recording objekt - ee
                 line = reader.readLine();
                 String [] recordingInfo = line.split(";"); //vi splittar vår inlästa line för att dela upp artistnamn, albumnamn och år - ee
+                int year = Integer.parseInt(recordingInfo[2]);
 
-                //Set <String> genres = new skapa ett set här som vi kan skicka in i parametern när vi skapar en recording - ee
+                Set <String> genres = new HashSet<>();//skapa ett set här som vi kan skicka in i parametern när vi skapar en recording - ee
                 int numberOfGenres = Integer.parseInt(reader.readLine()); //nästa rad i recording_input kommer säga hur många genres som recordingen tillhör - ee
-                for (int ii = 0; ii>numberOfGenres; ii++){
-                    line = reader.readLine();22
+                for (int j = 0; j>numberOfGenres; j++){
+                    line = reader.readLine();
+                    genres.add(line);
                 }
-
+                Recording r = new Recording(recordingInfo[0], recordingInfo[1], year, genres);
+                recordings.add(r);
             }
 
-            //while ((line = reader.readLine()) != null) {
-                //vi skapar recording objekt och stoppar in dom i recordings
-                //Recording r = new Recording();
-            //}
             fileReader.close();
             reader.close();
         }
         catch (FileNotFoundException e){
-            System.out.printf( "%s file not found", fileName);
+            System.out.printf( "%s file not found%n", fileName);
         }
         catch (IOException e){
-            System.out.printf( "%s file not found", fileName);
+            e.printStackTrace();
         }
 	}
 
