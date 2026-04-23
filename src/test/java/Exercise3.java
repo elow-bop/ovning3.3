@@ -17,14 +17,14 @@ public class Exercise3 {
             int numberOfRecords = Integer.parseInt(reader.readLine()); //första raden i textfilen (recording_input) säger hur många olika records som filen innehåller - ee
             String line;
 
-            for (int i = 0; i>numberOfRecords; i++){ //för varje record som finns i recording_input så skapar vi ett recording objekt - ee
+            for (int i = 0; i<numberOfRecords; i++){ //för varje record som finns i recording_input så skapar vi ett recording objekt - ee
                 line = reader.readLine();
                 String [] recordingInfo = line.split(";"); //vi splittar vår inlästa line för att dela upp artistnamn, albumnamn och år - ee
                 int year = Integer.parseInt(recordingInfo[2]);
 
                 Set <String> genres = new HashSet<>();//skapa ett set här som vi kan skicka in i parametern när vi skapar en recording - ee
                 int numberOfGenres = Integer.parseInt(reader.readLine()); //nästa rad i recording_input kommer säga hur många genres som recordingen tillhör - ee
-                for (int j = 0; j>numberOfGenres; j++){
+                for (int j = 0; j<numberOfGenres; j++){
                     line = reader.readLine();
                     genres.add(line);
                 }

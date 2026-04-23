@@ -3,6 +3,5 @@ public class Elias {
         Exercise3 exercise = new Exercise3();
         exercise.importRecordings("src/recording_input.txt");
         System.out.print(exercise.getRecordings());
-
     }
 }
