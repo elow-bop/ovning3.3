@@ -7,8 +7,35 @@ public class Exercise3 {
 	private final List<Recording> recordings = new ArrayList<>();
 
 	public void exportRecordings(String fileName) {
+        try{
+            FileWriter fileWriter = new FileWriter(fileName);
+            PrintWriter writer = new PrintWriter(fileWriter);
+
+            for (Recording r : recordings){
+                writer.println("<recording>");
+                writer.println("  <artist>" + r.getArtist() + "</artist>");
+                writer.println("  <title>" + r.getTitle() + "</title>");
+                writer.println("  <year>" + r.getYear() + "</year>");
+                writer.println("  <genres>");
+
+                //List<String> genres = new ArrayList<>(r.getGenre());
+
+                for(int i=0; i<r.getGenre().size(); i++){
+                    writer.println("    <genre>" + r.getGenre() + "</genre>");
+                }
+
+                writer.println("  </genres>");
+                writer.println("</recording>");
+            }
+
+            writer.close();
+            fileWriter.close();
+        } catch (FileNotFoundException e) {
+            System.out.printf("%s not found%n", fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
-    //här ska vi läsa filerna
 
 	public void importRecordings(String fileName) {
         try {
