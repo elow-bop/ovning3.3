@@ -7,8 +7,14 @@ public class Exercise3 {
 	private final List<Recording> recordings = new ArrayList<>();
 
 	public void exportRecordings(String fileName) {
-	}
-    //här ska vi läsa filerna
+        try {
+            FileWriter fileWriter = new FileWriter(fileName);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+            printWriter.println();
+        }
+    }
+
 
 	public void importRecordings(String fileName) {
         try {
