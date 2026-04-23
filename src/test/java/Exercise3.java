@@ -27,7 +27,7 @@ public class Exercise3 {
                 //Set <String> genres = new skapa ett set här som vi kan skicka in i parametern när vi skapar en recording - ee
                 int numberOfGenres = Integer.parseInt(reader.readLine()); //nästa rad i recording_input kommer säga hur många genres som recordingen tillhör - ee
                 for (int ii = 0; ii>numberOfGenres; ii++){
-                    line = reader.readLine();
+                    line = reader.readLine();22
                 }
 
             }
