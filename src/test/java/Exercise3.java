@@ -12,8 +12,10 @@ public class Exercise3 {
 
 	public void exportRecordings(String fileName) {
 	}
+    //här ska vi läsa filerna
 
 	public void importRecordings(String fileName) {
+        //här ska vi skriva filerna
         try {
             FileReader fileReader = new FileReader(fileName);
             BufferedReader reader = new BufferedReader(fileReader);
