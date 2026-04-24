@@ -81,11 +81,12 @@ public class Exercise3 {
                 int month = disWriter.readInt();
                 int day = disWriter.readInt(); //vi kommer inte använda dag i  vår formatering men måste läsa in den ändå (tror jag...) - ee
                 double value = disWriter.readDouble(); //vi vet att dom kommer i denna ordning i filen! år-månad-dag och sist värde som kommer vara en double - ee
-                int key = year * 100 + month;
 
-                if (!dateToValue.containsKey(key)){
+                int key = year * 100 + month; //här skapar vi vårt nyckel - datumformatering yyyymm - ee
+
+                if (!dateToValue.containsKey(key)){ //om det inte redan finns poster från denna månad så skapar vi ett nytt nyckel-värde par... - ee
                     dateToValue.put(key, value);
-                }else{
+                }else{ //...men om det redan finns poster från denna månad så uppdaterar vi värdet knutet till denna nyckel (dvs denna specifika månad) - ee
                     double updatedValue = dateToValue.get(key);
                     dateToValue.replace(key, updatedValue+=value);
                 }
