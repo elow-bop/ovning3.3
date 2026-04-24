@@ -81,8 +81,14 @@ public class Exercise3 {
                 int month = disWriter.readInt();
                 int day = disWriter.readInt(); //vi kommer inte använda dag i  vår formatering men måste läsa in den ändå (tror jag...) - ee
                 double value = disWriter.readDouble(); //vi vet att dom kommer i denna ordning i filen! år-månad-dag och sist värde som kommer vara en double - ee
+                int key = year * 100 + month;
 
-                dateToValue.put(year * 100 + month, value);
+                if (!dateToValue.containsKey(key)){
+                    dateToValue.put(key, value);
+                }else{
+                    double updatedValue = dateToValue.get(key);
+                    dateToValue.replace(key, updatedValue+=value);
+                }
                 numberOfSales --;
             }
             disWriter.close();
