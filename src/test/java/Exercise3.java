@@ -77,15 +77,17 @@ public class Exercise3 {
 
             Map<Integer, Double> dateToValue = new TreeMap<>();
             while (numberOfSales > 0 ){ //en while sats där vi för för varje säljpost läser år, månad, dag och värde - ee
+                int year = disWriter.readInt();
+                int month = disWriter.readInt();
+                int day = disWriter.readInt(); //vi kommer inte använda dag i  vår formatering men måste läsa in den ändå (tror jag...) - ee
+                double value = disWriter.readDouble(); //vi vet att dom kommer i denna ordning i filen! år-månad-dag och sist värde som kommer vara en double - ee
 
+                dateToValue.put(year * 100 + month, value);
                 numberOfSales --;
             }
-
-
-
-
-
-
+            disWriter.close();
+            fileInputStream.close();
+            return dateToValue;
         }
         catch(FileNotFoundException e){
             System.out.printf( "%s file not found%n", fileName);
