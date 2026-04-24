@@ -69,7 +69,16 @@ public class Exercise3 {
 	}
 
 	public Map<Integer, Double> importSales(String fileName) {
-		return null;
+		try {
+            FileInputStream fileInputStream = new FileInputStream(fileName);
+        }
+        catch(FileNotFoundException e){
+            System.out.printf( "%s file not found%n", fileName);
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        return null;
 	}
 
 	public List<Recording> getRecordings() {
