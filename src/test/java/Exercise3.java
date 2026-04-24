@@ -1,4 +1,3 @@
-import java.io.FileNotFoundException;
 import java.util.*;
 import java.io.*;
 
@@ -71,6 +70,22 @@ public class Exercise3 {
 	public Map<Integer, Double> importSales(String fileName) {
 		try {
             FileInputStream fileInputStream = new FileInputStream(fileName);
+            DataInputStream disWriter = new DataInputStream(fileInputStream);
+
+            int numberOfSales = disWriter.readInt(); // vi läser in hur många olika försäljningsposter filen innehåller, för att kunna bygga en loop.
+            // readInt metoden använder vi då vi redan vet att den första binära byten kommer representera en siffra som säger hur många poster filen innehåller - ee
+
+            Map<Integer, Double> dateToValue = new TreeMap<>();
+            while (numberOfSales > 0 ){ //en while sats där vi för för varje säljpost läser år, månad, dag och värde - ee
+
+                numberOfSales --;
+            }
+
+
+
+
+
+
         }
         catch(FileNotFoundException e){
             System.out.printf( "%s file not found%n", fileName);
